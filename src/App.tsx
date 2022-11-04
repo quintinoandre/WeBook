@@ -1,7 +1,5 @@
-function App() {
-  return (
-    <div>App</div>
-  )
+function App(): JSX.Element {
+	return <div>App</div>;
 }
 
-export { App }
+export { App };
