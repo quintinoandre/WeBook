@@ -21,4 +21,17 @@ api.interceptors.request.use(
 	}
 );
 
+api.interceptors.response.use(
+	(response) => response,
+	async (error) => {
+		if (error.response && [401, 403].includes(error.response.status)) {
+			const w: Window = window;
+
+			w.location = '/';
+		}
+
+		return await Promise.reject(error);
+	}
+);
+
 export { api };
