@@ -32,6 +32,8 @@
 		"prefer-arrow-callback": 0,
 		"@typescript-eslint/no-unused-vars": 0,
 		"@typescript-eslint/triple-slash-reference": 0,
+		"@typescript-eslint/strict-boolean-expressions": 0,
+		"@typescript-eslint/consistent-type-assertions": 0,
 		"unused-imports/no-unused-imports": "error",
 		"unused-imports/no-unused-vars": [
 			"warn",
