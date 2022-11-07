@@ -27,7 +27,9 @@ api.interceptors.response.use(
 		if (error.response && [401, 403].includes(error.response.status)) {
 			const w: Window = window;
 
-			w.location = '/';
+			if (w.location.pathname !== '/login') {
+				w.location = '/login';
+			}
 		}
 
 		return await Promise.reject(error);

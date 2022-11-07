@@ -1,43 +1,109 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import * as authService from '../../../services/authService';
-import { UserProfileButton } from './styles';
+import { ICustomClickEvent, IUserCredentials } from './LoginTypes';
+import {
+	Divider,
+	ErrorMessage,
+	FieldsContainer,
+	LoginButton,
+	LoginForm,
+	LoginTitle,
+	PasswordInput,
+	PasswordLabel,
+	SignInButton,
+	UsernameInput,
+	UsernameLabel,
+} from './styles';
+
+const DEFAULT_USER_CREDENTIALS = {
+	username: '',
+	password: '',
+} as const;
 
 function Login(): JSX.Element {
 	const navigate = useNavigate();
+
+	const [userCredentials, setUserCredentials] = useState<IUserCredentials>({
+		...DEFAULT_USER_CREDENTIALS,
+	});
 
 	const [error, setError] = useState<string>('');
 
 	function handleError(error: any): void {
 		console.error(error.response ? error.response.data : error.message);
 
-		setError(error.response ? error.response.data : error.message);
+		setError(error.response ? error.response.data.message : error.message);
 	}
 
-	async function login(): Promise<void> {
+	async function login(username: string, password: string): Promise<void> {
 		try {
-			await authService.login('csoares@ufp.edu.pt', 'password');
+			const user = await authService.login(username, password);
+
+			if (user) {
+				navigate('/');
+			}
 		} catch (error) {
 			handleError(error);
+
+			setUserCredentials({ ...DEFAULT_USER_CREDENTIALS });
 		}
 	}
 
-	useEffect(() => {
-		void login();
-	}, []);
+	function handleChangeInput(event: ChangeEvent<HTMLInputElement>): void {
+		setUserCredentials((previousState) => ({
+			...previousState,
+			[event.target.id]: event.target.value,
+		}));
+	}
 
-	function handleClickUserProfileButton(): void {
-		navigate('/userProfile');
+	function handleClickLoginButton(event: ICustomClickEvent): void {
+		event.preventDefault();
+
+		if (!userCredentials.username || !userCredentials.password) {
+			return setError('Please fill in all the data');
+		}
+
+		void login(userCredentials.username, userCredentials.password);
 	}
 
 	return (
-		<>
-			<div>Login</div>
-			<UserProfileButton onClick={handleClickUserProfileButton}>
-				User Profile
-			</UserProfileButton>
-		</>
+		<LoginForm>
+			<FieldsContainer>
+				<LoginTitle>Login</LoginTitle>
+				<Divider />
+				<UsernameLabel htmlFor="username">Username</UsernameLabel>
+				<UsernameInput
+					id="username"
+					type="email"
+					value={userCredentials.username}
+					onChange={(event: ChangeEvent<HTMLInputElement>) =>
+						handleChangeInput(event)
+					}
+				/>
+				<PasswordLabel htmlFor="password">Password</PasswordLabel>
+				<PasswordInput
+					id="password"
+					type="password"
+					value={userCredentials.password}
+					onChange={(event: ChangeEvent<HTMLInputElement>) =>
+						handleChangeInput(event)
+					}
+				/>
+				<Divider />
+				<LoginButton
+					onClick={(event: ICustomClickEvent) =>
+						handleClickLoginButton(event)
+					}
+				>
+					Login
+				</LoginButton>
+				<Divider />
+				<SignInButton>or Sign in</SignInButton>
+			</FieldsContainer>
+			{error ? <ErrorMessage>{error}</ErrorMessage> : <></>}
+		</LoginForm>
 	);
 }
 
