@@ -2,7 +2,7 @@ import { api } from '../../lib';
 import { setCookie } from '../../utils';
 import { IUser } from './authServiceTypes';
 
-async function login(email: string, password: string): Promise<void> {
+async function login(email: string, password: string): Promise<IUser> {
 	const { data: user }: { data: IUser } = await api.post('/api/auth/login', {
 		email,
 		password,
@@ -15,6 +15,8 @@ async function login(email: string, password: string): Promise<void> {
 	);
 
 	setCookie('token', token, expirationInSeconds);
+
+	return user;
 }
 
 export { login };
