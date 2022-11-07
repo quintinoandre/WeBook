@@ -85,9 +85,15 @@ const LoginButton = styled.button`
 	width: 100%;
 	margin-top: 3.0625rem;
 	margin-bottom: 4.8125rem;
+	transition: background-color 0.3s;
 
 	&:hover {
 		background: ${({ theme }) => theme['backGroundColor-light']};
+	}
+
+	&:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
 	}
 `;
 
