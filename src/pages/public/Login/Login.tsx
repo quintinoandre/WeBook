@@ -30,6 +30,7 @@ function Login(): JSX.Element {
 	});
 
 	const [error, setError] = useState<string>('');
+	const [isLoading, setIsLoading] = useState(false);
 
 	function handleError(error: any): void {
 		console.error(error.response ? error.response.data : error.message);
@@ -39,6 +40,8 @@ function Login(): JSX.Element {
 
 	async function login(username: string, password: string): Promise<void> {
 		try {
+			setIsLoading(true);
+
 			const user = await authService.login(username, password);
 
 			if (user) {
@@ -47,11 +50,15 @@ function Login(): JSX.Element {
 		} catch (error) {
 			handleError(error);
 
+			setIsLoading(false);
+
 			setUserCredentials({ ...DEFAULT_USER_CREDENTIALS });
 		}
 	}
 
 	function handleChangeInput(event: ChangeEvent<HTMLInputElement>): void {
+		setError('');
+
 		setUserCredentials((previousState) => ({
 			...previousState,
 			[event.target.id]: event.target.value,
@@ -66,6 +73,10 @@ function Login(): JSX.Element {
 		}
 
 		void login(userCredentials.username, userCredentials.password);
+	}
+
+	function handleClickSignInButton(): void {
+		navigate('/signin');
 	}
 
 	return (
@@ -93,6 +104,7 @@ function Login(): JSX.Element {
 				/>
 				<Divider />
 				<LoginButton
+					disabled={isLoading}
 					onClick={(event: ICustomClickEvent) =>
 						handleClickLoginButton(event)
 					}
@@ -100,7 +112,9 @@ function Login(): JSX.Element {
 					Login
 				</LoginButton>
 				<Divider />
-				<SignInButton>or Sign in</SignInButton>
+				<SignInButton onClick={handleClickSignInButton}>
+					or Sign in
+				</SignInButton>
 			</FieldsContainer>
 			{error ? <ErrorMessage>{error}</ErrorMessage> : <></>}
 		</LoginForm>
