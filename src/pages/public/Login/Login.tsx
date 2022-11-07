@@ -23,9 +23,9 @@ function Login(): JSX.Element {
 		}
 	}
 
-	useEffect(() => {
-		void login();
-	}, []);
+	// useEffect(() => {
+	// 	void login();
+	// }, []);
 
 	function handleClickUserProfileButton(): void {
 		navigate('/userProfile');
