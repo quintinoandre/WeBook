@@ -1,23 +1,18 @@
 const DEFAULT_THEME = {
 	white: '#ffffff',
+
 	black: '#000000',
 
-	'gray-100': '#E1E1E6',
-	'gray-300': '#C4C4CC',
-	'gray-400': '#8D8D99',
-	'gray-500': '#7C7C8A',
-	'gray-600': '#323238',
-	'gray-700': '#29292E',
-	'gray-800': '#202024',
-	'gray-900': '#121214',
+	backGroundColor:
+		'linear-gradient(243.31deg, rgba(166, 216, 24, 0.2) 31.34%, rgba(0, 0, 0, 0) 92.09%), rgba(4, 68, 128, 0.87)',
 
-	'green-300': '#00B37E',
-	'green-500': '#00875F',
-	'green-700': '#015F43',
+	'boderRadius-10': 'border-radius: 10px;',
 
-	'red-300': '#F75A68',
-	'red-500': '#AB222E',
-	'red-700': '#7A1921',
+	'gray-100': 'rgba(245,245,245,0.38)',
+	'gray-200': 'rgba(217,217,217, 100%)',
+
+	'blue-100': '#044480',
+	'blue-200': 'rgba(4,68,128,0.87)',
 } as const;
 
 export { DEFAULT_THEME };
