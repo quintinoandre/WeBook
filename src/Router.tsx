@@ -1,7 +1,7 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
 import { UserProfile } from './pages/private';
-import { Home, Login } from './pages/public';
+import { Home, Login, BookInfo } from './pages/public';
 import { getTokenFromCookies } from './utils';
 
 interface IPrivateRouteProps {
@@ -21,6 +21,7 @@ function Router(): JSX.Element {
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/login" element={<Login />} />
+			<Route path="/book-info" element={<BookInfo />} />
 			<Route element={<PrivateRoute redirectPath="/" />}>
 				<Route path="/userprofile" element={<UserProfile />} />
 			</Route>
