@@ -19,4 +19,21 @@ async function login(email: string, password: string): Promise<IUser> {
 	return user;
 }
 
-export { login };
+async function register(
+	email: string,
+	password: string,
+	name: string
+): Promise<IUser> {
+	const { data: user }: { data: IUser } = await api.post(
+		'/api/auth/register',
+		{
+			email,
+			password,
+			name,
+		}
+	);
+
+	return user;
+}
+
+export { login, register };
