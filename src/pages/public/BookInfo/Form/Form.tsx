@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+import { ArrayComments } from './CommentFile';
+import { IComment } from './IForm';
 import {
 	FormContainerStyle,
 	TextArea,
@@ -7,9 +11,22 @@ import {
 } from './styles';
 
 function Form(): void {
+	const [arrComments, setArrComments] = useState<IComment[]>([
+		...ArrayComments,
+	]);
+
+	function handleSubmit(e: React.FormEventHandler<HTMLFormElement>): void {
+		const count = 5;
+		e.preventDefault();
+		const username = e.target.name.value;
+		const comment = e.target.comment.value;
+		const obj = { name: username, comment, key: count + 1 };
+		setArrComments([...arrComments, obj]);
+	}
+
 	return (
 		<>
-			<FormContainerStyle>
+			<FormContainerStyle onSubmit={handleSubmit} state={arrComments}>
 				<h1>Comments:</h1>
 				<label>
 					<TextArea
@@ -22,13 +39,26 @@ function Form(): void {
 				</label>
 				<SubmitButton type="submit">Submit</SubmitButton>
 			</FormContainerStyle>
-			<Comments />
+			<ul>
+				{arrComments.map((elem, count) => {
+					return (
+						<li key={count}>
+							<Comments
+								key={elem.key}
+								name={elem.name}
+								comment={elem.comment}
+							/>
+						</li>
+					);
+				})}
+			</ul>
 		</>
 	);
 }
 
-function Comments(props) {
-	const { comment } = props;
+function Comments(props): JSX.Element {
+	const { name, comment } = props;
+
 	return (
 		<CommentsContainer>
 			<ProfilePick>
@@ -36,11 +66,10 @@ function Comments(props) {
 					src="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
 					alt="User Profile Pic"
 				/>
-				<h1>Brad Pitt</h1>
+				<h1>{name}</h1>
 			</ProfilePick>
 			<div>
 				<p>{comment}</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptatum debitis ab alias id veritatis quos modi, ratione ut aspernatur pariatur facilis cumque quae consectetur consequatur odio ex ullam temporibus.</p>
 			</div>
 		</CommentsContainer>
 	);

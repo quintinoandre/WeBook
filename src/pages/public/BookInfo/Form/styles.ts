@@ -47,13 +47,15 @@ const CommentsContainer = styled.div`
 	justifly-content: center;
 	align-items: center;
 	align-text: center;
-	height: 150px;
+	height: 130px;
 	width: 900px;
-	margin: 30px;
+	margin: 25px;
 	background: rgba(245, 245, 245, 0.38);
-	border: 1px solid #000000;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
+	ul {
+		margin: 10px;
+	}
 `;
 
 const ProfilePick = styled.div`
@@ -62,8 +64,6 @@ const ProfilePick = styled.div`
 	justifly-content: center;
 	align-items: center;
 	align-text: center;
-	height: 100px;
-	width: 190px;
 	border: 0;
 	padding: 0;
 	margin: 10px;
@@ -82,6 +82,7 @@ const ProfilePick = styled.div`
 		margin: 5px 10px;
 		top: 0;
 		font-size: 15px;
+		width: 60px;
 	}
 `;
 
