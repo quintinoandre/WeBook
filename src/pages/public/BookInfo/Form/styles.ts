@@ -44,9 +44,8 @@ const SubmitButton = styled.button`
 
 const CommentsContainer = styled.div`
 	display: flex;
-	justifly-content: center;
 	align-items: center;
-	align-text: center;
+	text-align: left;
 	height: 130px;
 	width: 900px;
 	margin: 25px;
@@ -56,21 +55,24 @@ const CommentsContainer = styled.div`
 	ul {
 		margin: 10px;
 	}
+	p {
+		padding: 10px;
+	}
 `;
 
 const ProfilePick = styled.div`
 	display: flex;
 	flex-direction: column;
-	justifly-content: center;
+	justify-content: center;
+	text-align: center;
 	align-items: center;
-	align-text: center;
 	border: 0;
 	padding: 0;
 	margin: 10px;
 	border-radius: 10px;
 	color: ${({ theme }) => theme['blue-100']};
 	font-weight: bold;
-	background: white;
+
 	img {
 		cursor: pointer;
 		width: 50px;
@@ -79,10 +81,10 @@ const ProfilePick = styled.div`
 		margin: 5px 10px;
 	}
 	h1 {
-		margin: 5px 10px;
+		margin: 5px 5px;
 		top: 0;
 		font-size: 15px;
-		width: 60px;
+		width: 100px;
 	}
 `;
 

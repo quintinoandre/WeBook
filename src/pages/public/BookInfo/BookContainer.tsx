@@ -4,7 +4,7 @@ import {
 	BookDetailedInfo,
 } from './styles';
 
-function BookInfoContainter(): void {
+function BookInfoContainter(): JSX.Element {
 	return (
 		<BookInfoContainterStyle>
 			<BookCoverAndTitle>

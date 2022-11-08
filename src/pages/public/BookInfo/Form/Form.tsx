@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { ArrayComments } from './CommentFile';
-import { IComment } from './IForm';
+import { IComment, ICustomFormSubmitEvent } from './FormTypes';
 import {
 	FormContainerStyle,
 	TextArea,
@@ -10,12 +10,12 @@ import {
 	CommentsContainer,
 } from './styles';
 
-function Form(): void {
+function Form(): JSX.Element {
 	const [arrComments, setArrComments] = useState<IComment[]>([
 		...ArrayComments,
 	]);
 
-	function handleSubmit(e: React.FormEventHandler<HTMLFormElement>): void {
+	function handleSubmit(e: ICustomFormSubmitEvent): void {
 		const count = 5;
 		e.preventDefault();
 		const username = e.target.name.value;
@@ -26,16 +26,20 @@ function Form(): void {
 
 	return (
 		<>
-			<FormContainerStyle onSubmit={handleSubmit} state={arrComments}>
+			<FormContainerStyle
+				onSubmit={(event: ICustomFormSubmitEvent) =>
+					handleSubmit(event)
+				}
+			>
 				<h1>Comments:</h1>
 				<label>
 					<TextArea
-						cols="100"
-						rows="5"
-						maxLength="300"
+						cols={100}
+						rows={5}
+						maxLength={300}
 						name="comment"
 						placeholder=" Leave a Comment"
-					></TextArea>
+					/>
 				</label>
 				<SubmitButton type="submit">Submit</SubmitButton>
 			</FormContainerStyle>
@@ -46,6 +50,7 @@ function Form(): void {
 							<Comments
 								key={elem.key}
 								name={elem.name}
+								url={elem.url}
 								comment={elem.comment}
 							/>
 						</li>
@@ -56,16 +61,13 @@ function Form(): void {
 	);
 }
 
-function Comments(props): JSX.Element {
-	const { name, comment } = props;
+function Comments(props: IComment): JSX.Element {
+	const { name, url, comment } = props;
 
 	return (
 		<CommentsContainer>
 			<ProfilePick>
-				<img
-					src="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
-					alt="User Profile Pic"
-				/>
+				<img src={url} alt="User Profile Pic" />
 				<h1>{name}</h1>
 			</ProfilePick>
 			<div>
