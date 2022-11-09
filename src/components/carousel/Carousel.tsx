@@ -21,26 +21,6 @@ function Carousel(): JSX.Element {
 		initialSlide: 0,
 	};
 
-	const [books, setBooks] = useState<IBook[]>([]);
-
-	function handleError(error: any): void {
-		console.error(error.response ? error.response.data : error.message);
-	}
-
-	async function getAllBooks(): Promise<void> {
-		try {
-			const response = await bookService.getAllBooks();
-
-			setBooks([...response]);
-		} catch (error) {
-			handleError(error);
-		}
-	}
-
-	useEffect(() => {
-		void getAllBooks();
-	}, []);
-
 	const StyledCarousel = styled.div`
 		width: 70%;
 		margin: 0 auto;
