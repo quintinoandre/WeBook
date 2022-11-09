@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Carousel } from '../../../components/carousel';
 
 import { LoginButton } from './styles';
 
@@ -15,6 +16,7 @@ function Home(): JSX.Element {
 
 	return (
 		<>
+			<Carousel></Carousel>
 			<div>Home</div>
 			<LoginButton onClick={handleClickLoginButton}>Login</LoginButton>
 			<br />
