@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 
-import Card from '../Card/Card';
+import { BooksContext } from '../../contexts';
+import { Card } from '../Card';
 import { IBookGridProps } from './BooksGridTypes';
 
 const Grid = styled.div`
@@ -14,17 +16,23 @@ const Grid = styled.div`
 `;
 
 function BooksGrid(props: IBookGridProps): JSX.Element {
+	const { books } = useContext(BooksContext);
+
 	return (
 		<Grid>
-			{props.data.map((item) => (
-				<Card
-					key={item.id}
-					title={item.title}
-					book_cover={item.book_cover}
-					year={item.year}
-					id={item.id}
-				></Card>
-			))}
+			{books
+				.filter((item) =>
+					props.userId ? item.user.id === props.userId : item
+				)
+				.map((item) => (
+					<Card
+						key={item.id}
+						title={item.title}
+						book_cover={item.book_cover}
+						year={item.year}
+						id={item.id}
+					></Card>
+				))}
 		</Grid>
 	);
 }
