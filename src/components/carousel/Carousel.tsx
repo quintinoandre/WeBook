@@ -1,6 +1,5 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
@@ -8,7 +7,7 @@ import * as bookService from '../../services/bookService';
 import Card from './components/Card';
 import { IBook } from './components/CardTypes';
 
-function Carousel(): JSX.Element {
+function Carousel(props: ICarouselProps): JSX.Element {
 	const settings = {
 		dots: true,
 		infinite: true,

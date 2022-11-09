@@ -12,4 +12,8 @@ interface IBook {
 	};
 }
 
-export type { IBook };
+interface ICarouselProps {
+	data: IBook[];
+}
+
+export type { IBook, ICarouselProps };
