@@ -5,6 +5,7 @@ import {
 	IBook,
 	IBooksContextType,
 	IBooksProviderProps,
+	IInsertBook,
 } from './BooksContextTypes';
 
 const BooksContext = createContext({} as IBooksContextType);
@@ -26,12 +27,27 @@ function BooksProvider({ children }: IBooksProviderProps): JSX.Element {
 		}
 	}, []);
 
+	const insertNewBook = useCallback(async function (
+		newBook: IInsertBook
+	): Promise<void> {
+		try {
+			const book = await bookService.insertNewBook(newBook);
+
+			if (book) {
+				setBooks((previousState) => [...previousState, book]);
+			}
+		} catch (error) {
+			handleError(error);
+		}
+	},
+	[]);
+
 	useEffect(() => {
 		void getAllBooks();
 	}, []);
 
 	return (
-		<BooksContext.Provider value={{ books }}>
+		<BooksContext.Provider value={{ books, insertNewBook }}>
 			{children}
 		</BooksContext.Provider>
 	);
