@@ -2,12 +2,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import styled from 'styled-components';
 
 import * as bookService from '../../services/bookService';
 import Card from './components/Card';
 import { IBook } from './components/CardTypes';
-
-import styled from 'styled-components';
 
 function Carousel(): JSX.Element {
 	const settings = {
@@ -41,17 +40,11 @@ function Carousel(): JSX.Element {
 		void getAllBooks();
 	}, []);
 
-	const StyledCarousel = styled.div`
-		width: 70%;
-		margin: 0 auto;
-		margin-top: 50px;
-	`;
-
 	return (
 		<StyledCarousel>
 			<Slider {...settings}>
 				{books.map((item) => (
-					<Card
+					<Card 
 						key={item.id}
 						title={item.title}
 						book_cover={item.book_cover}
@@ -63,5 +56,9 @@ function Carousel(): JSX.Element {
 		</StyledCarousel>
 	);
 }
+
+const StyledCarousel = styled.div`
+	margin: 0% 10%;
+`;
 
 export { Carousel };

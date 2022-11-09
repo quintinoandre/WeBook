@@ -1,15 +1,15 @@
-interface IBookDetails {
-	status: boolean;
-	message: string;
-	errors: string;
-	data: {
+interface IBook {
+	id: number;
+	title: string;
+	year: number;
+	description: string;
+	book_cover: string;
+	user: {
 		id: number;
-		title: string;
-		cover: string;
-		author: string;
-		year: number;
-		description: string;
+		name: string;
+		email: string;
+		profile_picture: string;
 	};
 }
 
-export type { IBookDetails };
+export type { IBook };

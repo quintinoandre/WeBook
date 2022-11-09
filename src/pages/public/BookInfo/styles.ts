@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const BookInfoContainterStyle = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: left;
 	align-items: center;
 	height: 650px;
 	margin: 2.5% 5%;
@@ -25,7 +25,6 @@ const BookCoverAndTitle = styled.div`
 	img {
 		max-height: 400px;
 		margin: 30px;
-		background: purple;
 	}
 `;
 const BookDetailedInfo = styled.div`
@@ -33,9 +32,9 @@ const BookDetailedInfo = styled.div`
 	flex-direction: column;
 	gap: 30px;
 	height: 300px;
+	margin-right: 20px;
 	color: ${({ theme }) => theme['blue-100']};
 	span {
-		padding-right: 20px;
 		color: black;
 		font-size: 15px;
 	}

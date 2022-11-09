@@ -1,28 +1,28 @@
 import styled from 'styled-components';
 
 const Image = styled.img`
-	width: 100%;
 	object-fit: cover;
 	border-radius: 10px;
-	scale: 100%;
 	transition: 0.5s ease-in;
-	height: 300px;
+	height: 350px;
+	width: 100%;
+	min-width: 200px;
 `;
 
 const Overlay = styled.div`
-	width: 100%;
+	width: 90%;
 	text-align: center;
 	position: absolute;
-	bottom: 1rem;
+	bottom: 5px;
 	overflow: hidden;
 	transition: 0.5s ease;
 	height: 0%;
 `;
 
 const CardContainer = styled.div`
+	padding: 10px;
 	position: relative;
 	cursor: pointer;
-	margin: 10px;
 
 	&:hover ${Image} {
 		filter: brightness(30%);
@@ -30,15 +30,16 @@ const CardContainer = styled.div`
 		transition: 0.5s ease;
 	}
 	&:hover ${Overlay} {
-		height: 40%;
+		height: 25%;
+	}
+	hr {
+		width: 50%;
+		margin: auto;
 	}
 `;
 
 const Text = styled.h1`
-	font-size: 0.9rem;
-	font-family: 'roboto';
-	color: rgb(246, 248, 248);
-	width: 100%;
+	color: white;
 	text-align: center;
 	font-family: 'raleway';
 	font-weight: normal;

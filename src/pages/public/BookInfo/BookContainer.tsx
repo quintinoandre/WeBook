@@ -1,6 +1,8 @@
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-// import { IBookDetails } from './BookTypes';
+import { getBookById } from '../../../services/bookService';
+import { IBook } from './BookTypes';
 import {
 	BookInfoContainterStyle,
 	BookCoverAndTitle,
@@ -8,12 +10,21 @@ import {
 } from './styles';
 
 function BookInfoContainter(): JSX.Element {
-	// const [bookDetails, setBookDetails] = useState({} as IBookDetails);
+	const { id } = useParams();
+	const [bookDetails, setBookDetails] = useState({} as IBook);
 
-	// async function getBookDetails(): Promise<void> {
-	// 	const response = await getBookDetails();
-	// 	setBookDetails(response);
-	// }
+	function handleError(error: any): void {
+		console.error(error.response ? error.response.data : error.message);
+	}
+
+	async function getBookDetails(): Promise<void> {
+		try {
+			const response = await getBookById(Number(id));
+			setBookDetails(response);
+		} catch (error) {
+			handleError(error);
+		}
+	}
 
 	// useEffect(() => {
 	// 	void getBookDetails();
@@ -22,27 +33,30 @@ function BookInfoContainter(): JSX.Element {
 	return (
 		<BookInfoContainterStyle>
 			<BookCoverAndTitle>
-				<h1>"A Game of Thrones"</h1>
-				{/* <h1>{bookDetails.data.title}</h1> */}
+				{/* <h1>"A Game of Thrones"</h1> */}
+				<h1>{bookDetails.title}</h1>
 				<img
-					src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
-					// src={bookDetails.data.cover}
-					alt="BookCover"
+					// src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
+					src={bookDetails.book_cover}
+					srcSet="https://libribook.com/Images/mesmerized-pdf.jpg"
+					alt="Book Cover"
 				/>
 			</BookCoverAndTitle>
 			<BookDetailedInfo>
 				<h2>
-					Autor: <span>George R. R. Martin</span>
-					{/* <span>{bookDetails.data.author}</span> */}
+					Author:
+					{/* <span>George R. R. Martin</span> */}
+					<span>{bookDetails.title}</span>
 				</h2>
 				<h2>
-					Year: <span> 1996</span>
-					{/* <span>{bookDetails.data.year}</span> */}
+					Year:
+					{/* <span> 1996</span> */}
+					<span>{bookDetails.year}</span>
 				</h2>
 				<h2>
 					Description:
 					<p>
-						<span>
+						{/* <span>
 							Long ago, in a time forgotten, a preternatural event
 							threw the seasons out of balance. In a land where
 							summers can last decades and winters a lifetime,
@@ -59,8 +73,8 @@ function BookInfoContainter(): JSX.Element {
 							summoned to serve as the king’s new Hand, an
 							appointment that threatens to sunder not only his
 							family but the kingdom itself.
-						</span>
-						{/* <span>{bookDetails.data.description}</span> */}
+						</span> */}
+						<span>{bookDetails.description}</span>
 					</p>
 				</h2>
 			</BookDetailedInfo>

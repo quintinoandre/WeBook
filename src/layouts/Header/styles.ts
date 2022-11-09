@@ -15,6 +15,7 @@ const NavBar = styled.div`
 	h1 a {
 		color: ${({ theme }) => theme['blue-100']};
 		text-decoration: none;
+		cursor: pointer;
 	}
 `;
 
@@ -28,8 +29,9 @@ const LoginButton = styled.button`
 	cursor: pointer;
 
 	&:hover {
-		background: ${({ theme }) => theme['gray-300']};
-		border: 1px solid ${({ theme }) => theme['blue-100']};
+		font-weight: bold;
+		background: ${({ theme }) => theme['gray-100']};
+		border: 2px solid ${({ theme }) => theme['blue-100']};
 	}
 `;
 
@@ -47,6 +49,7 @@ const NavBarWithLogin = styled.div`
 	h1 a {
 		color: ${({ theme }) => theme['blue-100']};
 		text-decoration: none;
+		cursor: pointer;
 	}
 `;
 
