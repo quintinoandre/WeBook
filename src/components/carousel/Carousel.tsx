@@ -1,15 +1,12 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-
-import * as bookService from '../../services/bookService';
-import Card from './components/Card';
-import { IBook } from './components/CardTypes';
-
 import styled from 'styled-components';
 
-function Carousel(): JSX.Element {
+import Card from './components/Card';
+import { ICarouselProps } from './components/CardTypes';
+
+function Carousel(props: ICarouselProps): JSX.Element {
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -24,13 +21,13 @@ function Carousel(): JSX.Element {
 	const StyledCarousel = styled.div`
 		width: 70%;
 		margin: 0 auto;
-		margin-top: 50px;
+		margin-top: 150px;
 	`;
 
 	return (
 		<StyledCarousel>
 			<Slider {...settings}>
-				{books.map((item) => (
+				{props.data.map((item) => (
 					<Card
 						key={item.id}
 						title={item.title}
