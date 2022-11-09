@@ -1,3 +1,6 @@
+// import { useState } from 'react';
+
+// import { IBookDetails } from './BookTypes';
 import {
 	BookInfoContainterStyle,
 	BookCoverAndTitle,
@@ -5,21 +8,36 @@ import {
 } from './styles';
 
 function BookInfoContainter(): JSX.Element {
+	// const [bookDetails, setBookDetails] = useState({} as IBookDetails);
+
+	// async function getBookDetails(): Promise<void> {
+	// 	const response = await getBookDetails();
+	// 	setBookDetails(response);
+	// }
+
+	// useEffect(() => {
+	// 	void getBookDetails();
+	// }, []);
+
 	return (
 		<BookInfoContainterStyle>
 			<BookCoverAndTitle>
 				<h1>"A Game of Thrones"</h1>
+				{/* <h1>{bookDetails.data.title}</h1> */}
 				<img
 					src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
+					// src={bookDetails.data.cover}
 					alt="BookCover"
 				/>
 			</BookCoverAndTitle>
 			<BookDetailedInfo>
 				<h2>
 					Autor: <span>George R. R. Martin</span>
+					{/* <span>{bookDetails.data.author}</span> */}
 				</h2>
 				<h2>
 					Year: <span> 1996</span>
+					{/* <span>{bookDetails.data.year}</span> */}
 				</h2>
 				<h2>
 					Description:
@@ -42,6 +60,7 @@ function BookInfoContainter(): JSX.Element {
 							appointment that threatens to sunder not only his
 							family but the kingdom itself.
 						</span>
+						{/* <span>{bookDetails.data.description}</span> */}
 					</p>
 				</h2>
 			</BookDetailedInfo>

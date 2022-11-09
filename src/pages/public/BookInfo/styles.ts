@@ -5,7 +5,7 @@ const BookInfoContainterStyle = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	height: 650px;
-	margin: 30px;
+	margin: 2.5% 5%;
 	background: rgba(245, 245, 245, 0.65);
 	border-radius: 20px;
 `;
@@ -35,6 +35,7 @@ const BookDetailedInfo = styled.div`
 	height: 300px;
 	color: ${({ theme }) => theme['blue-100']};
 	span {
+		padding-right: 20px;
 		color: black;
 		font-size: 15px;
 	}
