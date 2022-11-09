@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import { getUserProfile } from '../../services';
@@ -32,6 +32,10 @@ function Header(): JSX.Element {
 		navigate('/userprofile');
 	}
 
+	function handleHomePageButton(): void {
+		navigate('/');
+	}
+
 	// useEffect(() => {
 	// 	void getUserDetails();
 	// }, []);
@@ -40,7 +44,7 @@ function Header(): JSX.Element {
 			{getTokenFromCookies().length > 0 ? (
 				<NavBarWithLogin>
 					<h1>
-						<a href="">WEBOOK</a>
+						<a onClick={handleHomePageButton}>WEBOOK</a>
 					</h1>
 					<ProfilePick onClick={handleClickProfileButton}>
 						<img
@@ -55,7 +59,7 @@ function Header(): JSX.Element {
 			) : (
 				<NavBar>
 					<h1>
-						<a href="">WEBOOK</a>
+						<a onClick={handleHomePageButton}>WEBOOK</a>
 					</h1>
 					<LoginButton onClick={handleClickLoginButton}>
 						Login

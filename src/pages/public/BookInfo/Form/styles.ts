@@ -21,6 +21,8 @@ const TextArea = styled.textarea`
 	border-radius: 5px;
 	margin: 10px;
 	font-size: 17px;
+	min-width: 500px;
+	max-width: 90%;
 `;
 
 const SubmitButton = styled.button`
@@ -36,7 +38,8 @@ const SubmitButton = styled.button`
 	color: ${({ theme }) => theme['blue-100']};
 
 	&:hover {
-		background: ${({ theme }) => theme['gray-200']};
+		font-weight: bold;
+		background: ${({ theme }) => theme['gray-100']};
 		border: 2px solid ${({ theme }) => theme['blue-100']};
 	}
 `;
