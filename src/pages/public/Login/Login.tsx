@@ -1,21 +1,16 @@
 import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import * as authService from '../../../services/authService';
-import { ICustomClickEvent, IUserCredentials } from './LoginTypes';
 import {
+	AuthButton,
 	Divider,
-	ErrorMessage,
-	FieldsContainer,
-	LoginButton,
-	LoginForm,
-	LoginTitle,
-	PasswordInput,
-	PasswordLabel,
-	SignInButton,
-	UsernameInput,
-	UsernameLabel,
-} from './styles';
+	InputLabel,
+	RedirectButton,
+} from '../../../components';
+import * as authService from '../../../services/authService';
+import { LoginMessages } from './LoginMessages';
+import { ICustomClickEvent, IUserCredentials } from './LoginTypes';
+import { ErrorMessage, FieldsContainer, LoginForm, LoginTitle } from './styles';
 
 const DEFAULT_USER_CREDENTIALS = {
 	username: '',
@@ -69,7 +64,7 @@ function Login(): JSX.Element {
 		event.preventDefault();
 
 		if (!userCredentials.username || !userCredentials.password) {
-			return setError('Please fill in all the data');
+			return setError(LoginMessages.FILL_ALL_DATA);
 		}
 
 		void login(userCredentials.username, userCredentials.password);
@@ -84,37 +79,44 @@ function Login(): JSX.Element {
 			<FieldsContainer>
 				<LoginTitle>Login</LoginTitle>
 				<Divider />
-				<UsernameLabel htmlFor="username">Username</UsernameLabel>
-				<UsernameInput
-					id="username"
+				<InputLabel
+					htmlFor="username"
+					labelText="Username"
 					type="email"
 					value={userCredentials.username}
+					labelMarginTop="1.1875rem"
+					inputMarginTop="0.75rem"
 					onChange={(event: ChangeEvent<HTMLInputElement>) =>
 						handleChangeInput(event)
 					}
 				/>
-				<PasswordLabel htmlFor="password">Password</PasswordLabel>
-				<PasswordInput
-					id="password"
+				<InputLabel
+					htmlFor="password"
+					labelText="Password"
 					type="password"
 					value={userCredentials.password}
+					labelMarginTop="1.9375rem"
+					inputMarginTop="0.75rem"
+					inputMarginBottom="2.9375rem"
 					onChange={(event: ChangeEvent<HTMLInputElement>) =>
 						handleChangeInput(event)
 					}
 				/>
 				<Divider />
-				<LoginButton
+				<AuthButton
+					text="Login"
 					disabled={isLoading}
+					marginTop="3.0625rem"
+					marginBottom="4.8125rem"
 					onClick={(event: ICustomClickEvent) =>
 						handleClickLoginButton(event)
 					}
-				>
-					Login
-				</LoginButton>
+				/>
 				<Divider />
-				<SignInButton onClick={handleClickSignInButton}>
-					or Sign in
-				</SignInButton>
+				<RedirectButton
+					text="or Sign in"
+					onClick={handleClickSignInButton}
+				/>
 			</FieldsContainer>
 			{error ? <ErrorMessage>{error}</ErrorMessage> : <></>}
 		</LoginForm>

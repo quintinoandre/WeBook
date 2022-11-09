@@ -9,10 +9,19 @@ function Home(): JSX.Element {
 		navigate('/login');
 	}
 
+	function handleClickBookInfoButton(): void {
+		navigate('/book-info');
+	}
+
 	return (
 		<>
 			<div>Home</div>
 			<LoginButton onClick={handleClickLoginButton}>Login</LoginButton>
+			<br />
+			<div>Book Info</div>
+			<LoginButton onClick={handleClickBookInfoButton}>
+				Book Info
+			</LoginButton>
 		</>
 	);
 }

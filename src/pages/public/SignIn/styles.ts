@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const LoginForm = styled.form`
+const SignInForm = styled.form`
 	position: absolute;
 	display: flex;
 	flex-direction: column;
@@ -18,7 +18,7 @@ const FieldsContainer = styled.div`
 	margin: 0 auto;
 `;
 
-const LoginTitle = styled.span`
+const SignInTitle = styled.span`
 	display: flex;
 	justify-content: center;
 	font-weight: 700;
@@ -26,7 +26,7 @@ const LoginTitle = styled.span`
 	line-height: 1.75rem;
 	color: ${({ theme }) => theme['blue-100']};
 	margin-top: 3.5rem;
-	margin-bottom: 2.3125rem;
+	margin-bottom: 1.75rem;
 `;
 
 const ErrorMessage = styled.span`
@@ -44,4 +44,4 @@ const ErrorMessage = styled.span`
 	margin-bottom: 1rem;
 `;
 
-export { LoginForm, FieldsContainer, LoginTitle, ErrorMessage };
+export { SignInForm, FieldsContainer, SignInTitle, LoginButton, ErrorMessage };
