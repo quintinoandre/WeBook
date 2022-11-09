@@ -24,7 +24,7 @@ function Router(): JSX.Element {
 			<Route path="/signin" element={<SignIn />} />
 			<Route path="/" element={<Header />}>
 				<Route path="/" element={<Home />} />
-				<Route path="/book-info" element={<BookInfo />} />
+				<Route path="/book-info/:id" element={<BookInfo />} />
 				<Route element={<PrivateRoute redirectPath="/" />}>
 					<Route path="/userprofile" element={<UserProfile />} />
 				</Route>

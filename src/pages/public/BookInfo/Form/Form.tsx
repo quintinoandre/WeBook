@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { getUserProfile } from '../../../../services';
 import { ArrayComments } from './CommentFile';
@@ -88,10 +89,14 @@ function Form(): JSX.Element {
 
 function Comments(props: IComment): JSX.Element {
 	const { name, profile_picture, comment } = props;
+	const navigate = useNavigate();
+	function handleClickProfileButton(): void {
+		navigate('/userprofile');
+	}
 
 	return (
 		<CommentsContainer>
-			<ProfilePick>
+			<ProfilePick onClick={handleClickProfileButton}>
 				<img src={profile_picture} alt="User Profile Pic" />
 				<h1>{name}</h1>
 			</ProfilePick>

@@ -3,8 +3,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-import { ICarouselProps } from '../../components/Card/CardTypes';
-import Card from '../Card/Card';
+import * as bookService from '../../services/bookService';
+import Card from './components/Card';
+import { IBook } from './components/CardTypes';
 
 function Carousel(props: ICarouselProps): JSX.Element {
 	const date = Date.now();
@@ -26,11 +27,25 @@ function Carousel(props: ICarouselProps): JSX.Element {
 		initialSlide: 0,
 	};
 
-	const StyledCarousel = styled.div`
-		width: 70%;
-		margin: 0 auto;
-		margin-top: 150px;
-	`;
+	const [books, setBooks] = useState<IBook[]>([]);
+
+	function handleError(error: any): void {
+		console.error(error.response ? error.response.data : error.message);
+	}
+
+	async function getAllBooks(): Promise<void> {
+		try {
+			const response = await bookService.getAllBooks();
+
+			setBooks([...response]);
+		} catch (error) {
+			handleError(error);
+		}
+	}
+
+	useEffect(() => {
+		void getAllBooks();
+	}, []);
 
 	return (
 		<StyledCarousel>
@@ -48,5 +63,9 @@ function Carousel(props: ICarouselProps): JSX.Element {
 		</StyledCarousel>
 	);
 }
+
+const StyledCarousel = styled.div`
+	margin: 0% 10%;
+`;
 
 export { Carousel };

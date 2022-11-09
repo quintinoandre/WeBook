@@ -9,4 +9,12 @@ async function getAllBooks(): Promise<IBook[]> {
 	return books;
 }
 
-export { getAllBooks };
+async function getBookById(bookId: number): Promise<IBook> {
+	const response = await api.get(`/api/book/${bookId}`);
+
+	const book: IBook = response.data.data;
+
+	return book;
+}
+
+export { getAllBooks, getBookById };
