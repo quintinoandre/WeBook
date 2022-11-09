@@ -22,6 +22,7 @@ const Overlay = styled.div`
 const CardContainer = styled.div`
 	position: relative;
 	cursor: pointer;
+	margin: 10px;
 
 	&:hover ${Image} {
 		filter: brightness(30%);
