@@ -28,7 +28,7 @@ const LoginButton = styled.button`
 	cursor: pointer;
 
 	&:hover {
-		background: ${({ theme }) => theme['gray-200']};
+		background: ${({ theme }) => theme['gray-300']};
 		border: 1px solid ${({ theme }) => theme['blue-100']};
 	}
 `;

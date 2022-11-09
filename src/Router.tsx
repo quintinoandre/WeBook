@@ -1,5 +1,6 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
+import { Header } from './layouts';
 import { UserProfile } from './pages/private';
 import { Home, Login, BookInfo, SignIn } from './pages/public';
 import { getTokenFromCookies } from './utils';
@@ -19,12 +20,14 @@ function Router(): JSX.Element {
 
 	return (
 		<Routes>
-			<Route path="/" element={<Home />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/signin" element={<SignIn />} />
-			<Route path="/book-info" element={<BookInfo />} />
-			<Route element={<PrivateRoute redirectPath="/" />}>
-				<Route path="/userprofile" element={<UserProfile />} />
+			<Route path="/" element={<Header />}>
+				<Route path="/" element={<Home />} />
+				<Route path="/book-info" element={<BookInfo />} />
+				<Route element={<PrivateRoute redirectPath="/" />}>
+					<Route path="/userprofile" element={<UserProfile />} />
+				</Route>
 			</Route>
 		</Routes>
 	);
