@@ -14,12 +14,20 @@ interface IBook {
 	};
 }
 
+interface IInsertBook {
+	title: string;
+	year: number;
+	description: string;
+	book_cover: string;
+}
+
 interface IBooksContextType {
 	books: IBook[];
+	insertNewBook: (newBook: IInsertBook) => Promise<void>;
 }
 
 interface IBooksProviderProps {
 	children: ReactNode;
 }
 
-export type { IBook, IBooksContextType, IBooksProviderProps };
+export type { IBook, IBooksContextType, IBooksProviderProps, IInsertBook };

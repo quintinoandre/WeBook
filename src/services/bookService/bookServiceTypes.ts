@@ -12,4 +12,11 @@ interface IBook {
 	};
 }
 
-export type { IBook };
+interface IInsertBook {
+	title: string;
+	year: number;
+	description: string;
+	book_cover: string;
+}
+
+export type { IBook, IInsertBook };

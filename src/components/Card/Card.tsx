@@ -5,7 +5,7 @@ import { Image, Overlay, CardContainer, Text } from './styles';
 
 function Card(props: IBook): JSX.Element {
 	const navigate = useNavigate();
-	console.log(props);
+
 	const { title, book_cover, year } = props;
 
 	function handleClick(): void {
