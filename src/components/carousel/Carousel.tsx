@@ -6,6 +6,10 @@ import styled from 'styled-components';
 import { ICarouselProps } from '../../components/Card/CardTypes';
 import Card from '../Card/Card';
 
+const date = Date.now();
+const dateBefore = new Date(date);
+dateBefore.setFullYear(dateBefore.getFullYear() - 2);
+
 function Carousel(props: ICarouselProps): JSX.Element {
 	const settings = {
 		dots: true,
@@ -27,15 +31,17 @@ function Carousel(props: ICarouselProps): JSX.Element {
 	return (
 		<StyledCarousel>
 			<Slider {...settings}>
-				{props.data.map((item) => (
-					<Card
-						key={item.id}
-						title={item.title}
-						book_cover={item.book_cover}
-						year={item.year}
-						id={item.id}
-					></Card>
-				))}
+				{props.data
+					.filter((item) => item.year >= dateBefore.getFullYear())
+					.map((item) => (
+						<Card
+							key={item.id}
+							title={item.title}
+							book_cover={item.book_cover}
+							year={item.year}
+							id={item.id}
+						></Card>
+					))}
 			</Slider>
 		</StyledCarousel>
 	);
