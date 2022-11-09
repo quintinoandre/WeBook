@@ -4,7 +4,6 @@ import Card from '../Card/Card';
 import { IBookGridProps } from './BooksGridTypes';
 
 const Grid = styled.div`
-	height: 50rem;
 	width: 100%;
 	display: grid;
 	grid-template: repeat(3, 1fr) / repeat(6, 1fr);
