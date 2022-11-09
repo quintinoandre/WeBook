@@ -14,6 +14,7 @@ interface IBook {
 
 interface IBookGridProps {
 	data: IBook[];
+	userId?: number;
 }
 
 export type { IBook, IBookGridProps };

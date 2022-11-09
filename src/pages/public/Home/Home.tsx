@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Carousel } from '../../../components/carousel';
+import { Carousel } from '../../../components/Carousel';
 import * as bookService from '../../../services/bookService/bookService';
 import { IBook } from '../../../services/bookService/bookServiceTypes';
-import { BooksGrid } from './Components/BooksGrid/BooksGrid';
+import { BooksGrid } from '../../../components/BooksGrid/BooksGrid';
 import { LoginButton } from './styles';
 
 function Home(): JSX.Element {

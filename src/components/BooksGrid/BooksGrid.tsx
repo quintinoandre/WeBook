@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import Card from '../../../../../components/carousel/components/Card';
+
+import Card from '../Card/Card';
 import { IBookGridProps } from './BooksGridTypes';
 
 const Grid = styled.div`

@@ -3,8 +3,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-import Card from './components/Card';
-import { ICarouselProps } from './components/CardTypes';
+import { ICarouselProps } from '../../components/Card/CardTypes';
+import Card from '../Card/Card';
 
 function Carousel(props: ICarouselProps): JSX.Element {
 	const settings = {
