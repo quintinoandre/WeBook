@@ -6,16 +6,20 @@ import styled from 'styled-components';
 import { ICarouselProps } from '../../components/Card/CardTypes';
 import Card from '../Card/Card';
 
-const date = Date.now();
-const dateBefore = new Date(date);
-dateBefore.setFullYear(dateBefore.getFullYear() - 2);
-
 function Carousel(props: ICarouselProps): JSX.Element {
+	const date = Date.now();
+	const dateBefore = new Date(date);
+	dateBefore.setFullYear(dateBefore.getFullYear() - 2);
+
+	const filteredBooks = props.data.filter(
+		(item) => item.year >= dateBefore.getFullYear()
+	);
+
 	const settings = {
 		dots: true,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 6,
+		slidesToShow: filteredBooks.length > 6 ? 6 : filteredBooks.length,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 2000,
@@ -31,17 +35,15 @@ function Carousel(props: ICarouselProps): JSX.Element {
 	return (
 		<StyledCarousel>
 			<Slider {...settings}>
-				{props.data
-					.filter((item) => item.year >= dateBefore.getFullYear())
-					.map((item) => (
-						<Card
-							key={item.id}
-							title={item.title}
-							book_cover={item.book_cover}
-							year={item.year}
-							id={item.id}
-						></Card>
-					))}
+				{filteredBooks.map((item) => (
+					<Card
+						key={item.id}
+						title={item.title}
+						book_cover={item.book_cover}
+						year={item.year}
+						id={item.id}
+					></Card>
+				))}
 			</Slider>
 		</StyledCarousel>
 	);
