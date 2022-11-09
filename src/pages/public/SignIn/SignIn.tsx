@@ -1,23 +1,18 @@
 import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import {
+	AuthButton,
+	Divider,
+	InputLabel,
+	RedirectButton,
+} from '../../../components';
 import * as authService from '../../../services/authService';
 import { SignInMessages } from './SignInMessages';
 import { ICustomClickEvent, IUserData } from './SignInTypes';
 import {
-	ConfirmPasswordInput,
-	ConfirmPasswordLabel,
-	Divider,
-	EmailInput,
-	EmailLabel,
 	ErrorMessage,
 	FieldsContainer,
-	LoginButton,
-	NameInput,
-	NameLabel,
-	PasswordInput,
-	PasswordLabel,
-	SignInButton,
 	SignInForm,
 	SignInTitle,
 } from './styles';
@@ -108,56 +103,65 @@ function SignIn(): JSX.Element {
 			<FieldsContainer>
 				<SignInTitle>Sign In</SignInTitle>
 				<Divider />
-				<NameLabel htmlFor="name">Name</NameLabel>
-				<NameInput
-					id="name"
+				<InputLabel
+					htmlFor="name"
+					labelText="Name"
 					type="text"
 					value={userData.name}
+					labelMarginTop="1.1875rem"
+					inputMarginTop="1.0625rem"
 					onChange={(event: ChangeEvent<HTMLInputElement>) =>
 						handleChangeInput(event)
 					}
 				/>
-				<EmailLabel htmlFor="email">Email</EmailLabel>
-				<EmailInput
-					id="email"
+				<InputLabel
+					htmlFor="email"
+					labelText="Email"
 					type="email"
 					value={userData.email}
+					labelMarginTop="1.1875rem"
+					inputMarginTop="1.0625rem"
 					onChange={(event: ChangeEvent<HTMLInputElement>) =>
 						handleChangeInput(event)
 					}
 				/>
-				<PasswordLabel htmlFor="password">Password</PasswordLabel>
-				<PasswordInput
-					id="password"
+				<InputLabel
+					htmlFor="password"
+					labelText="Password"
 					type="password"
 					value={userData.password}
+					labelMarginTop="1.1875rem"
+					inputMarginTop="1.0625rem"
 					onChange={(event: ChangeEvent<HTMLInputElement>) =>
 						handleChangeInput(event)
 					}
 				/>
-				<ConfirmPasswordLabel htmlFor="confirmPassword">
-					Confirm Password
-				</ConfirmPasswordLabel>
-				<ConfirmPasswordInput
-					id="confirmPassword"
+				<InputLabel
+					htmlFor="confirmPassword"
+					labelText="Confirm Password"
 					type="password"
 					value={userData.confirmPassword}
+					labelMarginTop="1.1875rem"
+					inputMarginTop="1.0625rem"
+					inputMarginBottom="2.4375rem"
 					onChange={(event: ChangeEvent<HTMLInputElement>) =>
 						handleChangeInput(event)
 					}
 				/>
 				<Divider />
-				<SignInButton
+				<AuthButton
+					text="Sign In"
 					disabled={isLoading}
+					marginTop="1.25rem"
+					marginBottom="2.5rem"
 					onClick={(event: ICustomClickEvent) =>
 						handleClickSignInButton(event)
 					}
-				>
-					Sign In
-				</SignInButton>
-				<LoginButton onClick={handleClickLoginButton}>
-					or Login
-				</LoginButton>
+				/>
+				<RedirectButton
+					text="or Login"
+					onClick={handleClickLoginButton}
+				/>
 			</FieldsContainer>
 			{error ? <ErrorMessage>{error}</ErrorMessage> : <></>}
 		</SignInForm>
