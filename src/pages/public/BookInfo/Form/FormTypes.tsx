@@ -3,7 +3,7 @@ import { FormEvent } from 'react';
 interface IComment {
 	key: number;
 	name: string;
-	url?: string;
+	profile_picture?: string;
 	comment: string;
 }
 
@@ -13,6 +13,9 @@ interface ICustomFormSubmitEvent extends FormEvent<HTMLFormElement> {
 			name: {
 				value: string;
 			};
+			profile_picture: {
+				value: string;
+			};
 			comment: {
 				value: string;
 			};
@@ -20,4 +23,16 @@ interface ICustomFormSubmitEvent extends FormEvent<HTMLFormElement> {
 	};
 }
 
-export type { IComment, ICustomFormSubmitEvent };
+interface IUserProfile {
+	status: boolean;
+	message: string;
+	errors: string;
+	data: {
+		id: number;
+		name: string;
+		email: string;
+		profile_picture: string;
+	};
+}
+
+export type { IComment, ICustomFormSubmitEvent, IUserProfile };

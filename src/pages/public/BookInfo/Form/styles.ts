@@ -6,6 +6,7 @@ const FormContainerStyle = styled.form`
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
+	margin: 2.5% 5%;
 	h1 {
 		padding: 0px 10px;
 		color: ${({ theme }) => theme['blue-100']};
@@ -46,9 +47,9 @@ const CommentsContainer = styled.div`
 	display: flex;
 	align-items: center;
 	text-align: left;
-	height: 130px;
+	height: 110px;
 	width: 900px;
-	margin: 25px;
+	margin: 1% 7.5%;
 	background: rgba(245, 245, 245, 0.38);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
@@ -57,6 +58,7 @@ const CommentsContainer = styled.div`
 	}
 	p {
 		padding: 10px;
+		font-size: 15px;
 	}
 `;
 
