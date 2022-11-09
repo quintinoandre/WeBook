@@ -25,4 +25,4 @@ function Card(props: IBook): JSX.Element {
 	);
 }
 
-export default Card;
+export { Card };

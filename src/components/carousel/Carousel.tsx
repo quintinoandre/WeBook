@@ -1,18 +1,20 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useContext } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-import * as bookService from '../../services/bookService';
-import Card from './components/Card';
-import { IBook } from './components/CardTypes';
+import { BooksContext } from '../../contexts';
+import { Card } from '../Card';
 
-function Carousel(props: ICarouselProps): JSX.Element {
+function Carousel(): JSX.Element {
+	const { books } = useContext(BooksContext);
+
 	const date = Date.now();
 	const dateBefore = new Date(date);
 	dateBefore.setFullYear(dateBefore.getFullYear() - 2);
 
-	const filteredBooks = props.data.filter(
+	const filteredBooks = books.filter(
 		(item) => item.year >= dateBefore.getFullYear()
 	);
 
@@ -26,26 +28,6 @@ function Carousel(props: ICarouselProps): JSX.Element {
 		autoplaySpeed: 2000,
 		initialSlide: 0,
 	};
-
-	const [books, setBooks] = useState<IBook[]>([]);
-
-	function handleError(error: any): void {
-		console.error(error.response ? error.response.data : error.message);
-	}
-
-	async function getAllBooks(): Promise<void> {
-		try {
-			const response = await bookService.getAllBooks();
-
-			setBooks([...response]);
-		} catch (error) {
-			handleError(error);
-		}
-	}
-
-	useEffect(() => {
-		void getAllBooks();
-	}, []);
 
 	return (
 		<StyledCarousel>
