@@ -1,5 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
+import Footer from './components/Footer/Footer';
 import { Header } from './layouts';
 import { UserProfile } from './pages/private';
 import { Home, Login, BookInfo, SignIn } from './pages/public';
@@ -22,7 +24,7 @@ function Router(): JSX.Element {
 		<Routes>
 			<Route path="/login" element={<Login />} />
 			<Route path="/signin" element={<SignIn />} />
-			<Route path="/" element={<Header />}>
+			<Route path="/" element={<><Header /><Footer /></>}>
 				<Route path="/" element={<Home />} />
 				<Route path="/book-info/:id" element={<BookInfo />} />
 				<Route element={<PrivateRoute redirectPath="/" />}>
