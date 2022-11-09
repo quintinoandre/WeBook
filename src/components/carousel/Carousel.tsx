@@ -22,15 +22,23 @@ function Carousel(): JSX.Element {
 		dots: true,
 		infinite: true,
 		speed: 500,
-		slidesToShow: filteredBooks.length > 6 ? 6 : filteredBooks.length,
+		slidesToShow: filteredBooks.length > 6 ? 6 : filteredBooks.length - 1,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 2000,
 		initialSlide: 0,
 	};
 
+	const Text = styled.h1`
+		text-align: center;
+        color: #044480;
+		font-family: 'roboto';
+		padding: 50px;
+	`;
+
 	return (
 		<StyledCarousel>
+			<Text>Most Recent Books</Text>
 			<Slider {...settings}>
 				{filteredBooks.map((item) => (
 					<Card
