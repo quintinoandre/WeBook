@@ -1,0 +1,414 @@
+{
+	"_type": "export",
+	"__export_format": 4,
+	"__export_date": "2022-11-10T20:13:40.483Z",
+	"__export_source": "insomnia.desktop.app:v2022.6.0",
+	"resources": [
+		{
+			"_id": "req_cb09d10bbe0b488594791167a265a097",
+			"parentId": "fld_fd113b6bfd5441219582e2e21ce7d266",
+			"modified": 1668111195139,
+			"created": 1667590410086,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_auth }}/{{ _.resource_login }}",
+			"name": "Login",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"csoares@ufp.edu.pt\",\n\t\"password\": \"password\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_48f7e2500d9149d1adc0975dd5b82df0"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_fd113b6bfd5441219582e2e21ce7d266",
+			"parentId": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"modified": 1667591803220,
+			"created": 1667590408385,
+			"name": "Auth",
+			"description": "",
+			"environment": {
+				"resource_api": "api",
+				"resource_auth": "auth",
+				"resource_login": "login",
+				"resource_register": "register"
+			},
+			"environmentPropertyOrder": {
+				"&": [
+					"resource_api",
+					"resource_auth",
+					"resource_login",
+					"resource_register"
+				]
+			},
+			"metaSortKey": 0,
+			"_type": "request_group"
+		},
+		{
+			"_id": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"parentId": null,
+			"modified": 1667590302814,
+			"created": 1667590273605,
+			"name": "WeBook",
+			"description": "",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
+			"_id": "req_d1860f2a61af4cadbaf91db5c8fd0013",
+			"parentId": "fld_fd113b6bfd5441219582e2e21ce7d266",
+			"modified": 1667901541567,
+			"created": 1667590635944,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_auth }}/{{ _.resource_register }}",
+			"name": "Register",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"csoares@ufp.edu.pt\",\n\t\"password\": \"password\",\n\t\"name\": \"Christophe Soares\",\n\t\"profile_picture\": \"https://i1.rgstatic.net/ii/profile.image/272341594800128-1441942704107_Q512/Christophe-Soares.jpg\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{ "name": "Content-Type", "value": "application/json" }
+			],
+			"authentication": {},
+			"metaSortKey": 100,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8dab4a8f81a3421dbc589c46dcbe915c",
+			"parentId": "fld_b3a42623665946a6bbc55a61c64bee48",
+			"modified": 1667591803225,
+			"created": 1667591600710,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_book }}/44",
+			"name": "Find Book by ID",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_b3a42623665946a6bbc55a61c64bee48",
+			"parentId": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"modified": 1667591803220,
+			"created": 1667591194528,
+			"name": "Books",
+			"description": "",
+			"environment": { "resource_api": "api", "resource_book": "book" },
+			"environmentPropertyOrder": {
+				"&": ["resource_api", "resource_book"]
+			},
+			"metaSortKey": 100,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_296c1909dadf467388b9e2600609bf08",
+			"parentId": "fld_b3a42623665946a6bbc55a61c64bee48",
+			"modified": 1668017878620,
+			"created": 1667591218142,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_book }}",
+			"name": "Get All Books",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [
+				{
+					"id": "pair_c4fa34b741f44f9eaa51058e50f0b1ee",
+					"name": "sort_by",
+					"value": "year",
+					"description": "",
+					"disabled": false
+				},
+				{
+					"id": "pair_a779e35a8d7e4d469597ceaf9f1adeea",
+					"name": "order_by",
+					"value": "desc",
+					"description": "",
+					"disabled": false
+				}
+			],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 100,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b185999666aa44f0b76bbafaa2fd190a",
+			"parentId": "fld_b3a42623665946a6bbc55a61c64bee48",
+			"modified": 1668078510019,
+			"created": 1667591442184,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_book }}",
+			"name": "Insert a New Book",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"title\": \"my first book\",\n\t\"description\": \"my first description\",\n\t\"year\": 2022,\n\t\"book_cover\": \"https://images-na.ssl-images-amazon.com/images/I/411ejyE8obL._SX377_BO1,204,203,200_.jpg\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"id": "pair_8bfc94e15a3f4cf1ada4d13edfa420ce",
+					"name": "Authorization",
+					"value": "{% response 'body', 'req_cb09d10bbe0b488594791167a265a097', 'b64::JC5kYXRhLnRva2Vu::46b', 'always', 60 %}",
+					"description": ""
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_f0b4e7d5f2854f72b55eceed30f51903"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 200,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c245fbced73c43849af450cee97b5b3f",
+			"parentId": "fld_b3a42623665946a6bbc55a61c64bee48",
+			"modified": 1668079823955,
+			"created": 1667591652039,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_book }}/464",
+			"name": "Update a Book",
+			"description": "",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"title\": \"my first book2\",\n\t\"year\": 2021,\n\t\"description\": \"my first description2\",\n\t\"book_cover\": \"https://images-na.ssl-images-amazon.com/images/I/411ejyE8obL._SX377_BO1,204,203,200_.jpg\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"id": "pair_3ed1400a93cc4802903246a51cf2e8df",
+					"name": "Authorization",
+					"value": "{% response 'body', 'req_cb09d10bbe0b488594791167a265a097', 'b64::JC5kYXRhLnRva2Vu::46b', 'always', 60 %}",
+					"description": ""
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_d689749b171f4230bc12b09dc3ac7b9d"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 300,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_705f2de6cdf04640a132403ac9d68867",
+			"parentId": "fld_b3a42623665946a6bbc55a61c64bee48",
+			"modified": 1668079918796,
+			"created": 1667591771464,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_book }}/464",
+			"name": "Delete a Book",
+			"description": "",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"id": "pair_3ed1400a93cc4802903246a51cf2e8df",
+					"name": "Authorization",
+					"value": "{% response 'body', 'req_cb09d10bbe0b488594791167a265a097', 'b64::JC5kYXRhLnRva2Vu::46b', 'always', 60 %}",
+					"description": ""
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 400,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_daccb710959042c3a8c4fdc727b58e40",
+			"parentId": "fld_4c9343c58a474cd885352c234de2d469",
+			"modified": 1667613325912,
+			"created": 1667590786007,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_user }}/{{ _.resource_profile }}",
+			"name": "Profile",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"id": "pair_9e5b7f1b259641d6a476481b6bb2bafa",
+					"name": "Authorization",
+					"value": "{% response 'body', 'req_cb09d10bbe0b488594791167a265a097', 'b64::JC5kYXRhLnRva2Vu::46b', 'always', 60 %}",
+					"description": ""
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_4c9343c58a474cd885352c234de2d469",
+			"parentId": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"modified": 1667591803220,
+			"created": 1667590718918,
+			"name": "Users",
+			"description": "",
+			"environment": {
+				"resource_api": "api",
+				"resource_user": "user",
+				"resource_profile": "profile"
+			},
+			"environmentPropertyOrder": {
+				"&": ["resource_api", "resource_user", "resource_profile"]
+			},
+			"metaSortKey": 200,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_bb97b7dc85d4499ea6ab624de7d21624",
+			"parentId": "fld_4c9343c58a474cd885352c234de2d469",
+			"modified": 1667859127946,
+			"created": 1667591021393,
+			"url": "{{ _.baseURL }}/{{ _.resource_api }}/{{ _.resource_user }}/{{ _.resource_profile }}",
+			"name": "Update Profile",
+			"description": "",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"csoares@ufp.edu.pt\",\n\t\"password\": \"password\",\n\t\"name\": \"Christophe Soares\",\n\t\"profile_picture\": \"https://i1.rgstatic.net/ii/profile.image/272341594800128-1441942704107_Q512/Christophe-Soares.jpg\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"id": "pair_9e5b7f1b259641d6a476481b6bb2bafa",
+					"name": "Authorization",
+					"value": "{% response 'body', 'req_cb09d10bbe0b488594791167a265a097', 'b64::JC5kYXRhLnRva2Vu::46b', 'always', 60 %}",
+					"description": ""
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1a16ec5a1daa428a896efc1e0c194aac"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 100,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "env_3ad5fd8be17e55aba9865eb798b8a0cac97b7662",
+			"parentId": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"modified": 1667590329845,
+			"created": 1667590273614,
+			"name": "Base Environment",
+			"data": {},
+			"dataPropertyOrder": {},
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1667590273614,
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_3ad5fd8be17e55aba9865eb798b8a0cac97b7662",
+			"parentId": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"modified": 1667590273615,
+			"created": 1667590273615,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "spc_6a9095a7008542d8b9a98f09e4cb7b84",
+			"parentId": "wrk_c02a0d994111460f9bf9777f26a21c09",
+			"modified": 1667590273607,
+			"created": 1667590273607,
+			"fileName": "webook",
+			"contents": "",
+			"contentType": "yaml",
+			"_type": "api_spec"
+		},
+		{
+			"_id": "env_7b73f37633b34151a0937efb9613a13e",
+			"parentId": "env_3ad5fd8be17e55aba9865eb798b8a0cac97b7662",
+			"modified": 1667917195233,
+			"created": 1667590331660,
+			"name": "development",
+			"data": { "baseURL": "https://ancient-temple-61124.herokuapp.com" },
+			"dataPropertyOrder": { "&": ["baseURL"] },
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1667590331661,
+			"_type": "environment"
+		}
+	]
+}

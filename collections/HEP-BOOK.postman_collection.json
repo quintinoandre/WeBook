@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "4d61f8e1-83cd-4044-b553-bd46de96d5a6",
+		"name": "HEP-BOOK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"csoares@ufp.edu.pt\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/auth/login",
+							"host": ["{{server}}"],
+							"path": ["api", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"csoares@ufp.edu.pt\",\n    \"password\": \"password\",\n    \"name\":\"Christophe Soares\",\n    \"profile_picture\": \"https://i1.rgstatic.net/ii/profile.image/272341594800128-1441942704107_Q512/Christophe-Soares.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/auth/register",
+							"host": ["{{server}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/user/profile",
+							"host": ["{{server}}"],
+							"path": ["api", "user", "profile"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"csoares@ufp.edu.pt\",\n    \"password\": \"password\",\n    \"name\": \"Christophe Soares\",\n    \"profile_picture\": \"https://i1.rgstatic.net/ii/profile.image/272341594800128-1441942704107_Q512/Christophe-Soares.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/user/profile",
+							"host": ["{{server}}"],
+							"path": ["api", "user", "profile"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Get All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/book/?sort_by=year&order_by=desc",
+							"host": ["{{server}}"],
+							"path": ["api", "book", ""],
+							"query": [
+								{
+									"key": "sort_by",
+									"value": "year",
+									"description": "optional field"
+								},
+								{
+									"key": "order_by",
+									"value": "desc",
+									"description": "optional field"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert a New Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"my first book\",\n    \"description\": \"my first description\",\n    \"year\": 2022,\n    \"book_cover\": \"https://images-na.ssl-images-amazon.com/images/I/411ejyE8obL._SX377_BO1,204,203,200_.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/book/",
+							"host": ["{{server}}"],
+							"path": ["api", "book", ""]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/book/44",
+							"host": ["{{server}}"],
+							"path": ["api", "book", "44"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"my first book2\",\n    \"year\": 2021,\n    \"description\": \"my first description2\",\n    \"book_cover\": \"https://images-na.ssl-images-amazon.com/images/I/411ejyE8obL._SX377_BO1,204,203,200_.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/book/14",
+							"host": ["{{server}}"],
+							"path": ["api", "book", "14"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/book/1",
+							"host": ["{{server}}"],
+							"path": ["api", "book", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "https://ancient-temple-61124.herokuapp.com"
+		},
+		{
+			"key": "server",
+			"value": "http://localhost:8080",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNCIsImV4cCI6MTY5MDk3Mjk1NSwiaWF0IjoxNjU5NDM2OTU1LCJpc3MiOiJpc3N1ZXJfZGVzaWduYXRpb24ifQ.iBR-rgXC9Ux3_vMVpH-aH85PS4wUoPAE1i8KWkXFVe0"
+		}
+	]
+}

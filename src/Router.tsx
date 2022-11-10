@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
-import  { Footer, Header } from './layouts';
+import { Footer, Header } from './layouts';
 import { UserProfile } from './pages/private';
 import { Home, Login, BookInfo, SignIn } from './pages/public';
 import { getTokenFromCookies } from './utils';
