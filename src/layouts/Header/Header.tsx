@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import { getUserProfile } from '../../services';
@@ -17,6 +17,7 @@ function Header(): JSX.Element {
 	async function getUserDetails(): Promise<void> {
 		try {
 			const response = await getUserProfile();
+			console.log(response);
 
 			setUserProfile(response);
 		} catch (error) {
@@ -39,6 +40,7 @@ function Header(): JSX.Element {
 	// useEffect(() => {
 	// 	void getUserDetails();
 	// }, []);
+
 	return (
 		<>
 			{getTokenFromCookies().length > 0 ? (
@@ -49,7 +51,7 @@ function Header(): JSX.Element {
 					<ProfilePick onClick={handleClickProfileButton}>
 						<img
 							// src={userProfile.data.profile_picture}
-							src="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
+							srcSet="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
 							alt="User Profile Pic"
 						/>
 						<h4>Brad Pitt</h4>
