@@ -5,3 +5,4 @@ export * from './Carousel';
 export * from './InputLabel';
 export * from './RedirectButton';
 export * from './BooksGrid';
+export * from './BookModal';

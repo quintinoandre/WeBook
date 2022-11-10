@@ -21,13 +21,28 @@ interface IInsertBook {
 	book_cover: string;
 }
 
+interface IUpdateBook {
+	title: string;
+	year: number;
+	description: string;
+	book_cover: string;
+}
+
 interface IBooksContextType {
 	books: IBook[];
 	insertNewBook: (newBook: IInsertBook) => Promise<void>;
+	updateBook: (bookId: number, updatedBook: IUpdateBook) => Promise<void>;
+	deleteBook: (bookId: number) => Promise<void>;
 }
 
 interface IBooksProviderProps {
 	children: ReactNode;
 }
 
-export type { IBook, IBooksContextType, IBooksProviderProps, IInsertBook };
+export type {
+	IBook,
+	IBooksContextType,
+	IBooksProviderProps,
+	IInsertBook,
+	IUpdateBook,
+};

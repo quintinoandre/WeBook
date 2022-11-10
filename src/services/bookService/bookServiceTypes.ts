@@ -19,4 +19,30 @@ interface IInsertBook {
 	book_cover: string;
 }
 
-export type { IBook, IInsertBook };
+interface IUpdateBook {
+	title: string;
+	year: number;
+	description: string;
+	book_cover: string;
+}
+
+interface IDeleteBookResponse {
+	satus: boolean;
+	message: string;
+	errors: string;
+	data?: {
+		id: number;
+		title: string;
+		year: number;
+		description: string;
+		book_cover: string;
+		user: {
+			id: number;
+			name: string;
+			email: string;
+			profile_picture: string;
+		};
+	};
+}
+
+export type { IBook, IInsertBook, IUpdateBook, IDeleteBookResponse };
