@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import { Icons } from './Icons';
-import { Text } from './Text';
-
 const StyledFooter = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -16,13 +13,4 @@ const StyledFooter = styled.div`
 	margin: 2% 20%;
 `;
 
-function Footer(): JSX.Element {
-	return (
-		<StyledFooter>
-			<Text></Text>
-			<Icons></Icons>
-		</StyledFooter>
-	);
-}
-
-export default Footer;
+export { StyledFooter };

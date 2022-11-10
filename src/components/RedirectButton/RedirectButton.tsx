@@ -1,4 +1,4 @@
-import { IRedirectButtonProps } from './RedirectButtonTypes';
+import { IRedirectButtonProps } from './redirectButtonTypes';
 import { Button } from './styles';
 
 function RedirectButton(props: IRedirectButtonProps): JSX.Element {

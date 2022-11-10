@@ -1,14 +1,13 @@
 import { Carousel } from '../../../components/Carousel';
-import { BookInfoContainter } from './BookContainer';
+import { BookInfoContainer } from './BookContainer';
 import { Form } from './Form';
 
 function BookInfo(): JSX.Element {
 	return (
 		<>
-			<BookInfoContainter />
+			<BookInfoContainer />
 			<Carousel />
 			<Form />
-			{/* <Footer/> */}
 		</>
 	);
 }

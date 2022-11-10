@@ -121,7 +121,6 @@ const SaveBtn = styled.button`
 	transition: all 0.25s ease;
 
 	&:hover {
-		box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
 		background: ${({ theme }) => theme['backGroundColor-light']};
 	}
 `;

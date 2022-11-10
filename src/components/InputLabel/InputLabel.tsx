@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-import { IInputLabelProps } from './InputLabelTypes';
+import { IInputLabelProps } from './inputLabelTypes';
 import { Input, Label } from './styles';
 
 function InputLabel(props: IInputLabelProps): JSX.Element {

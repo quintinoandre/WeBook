@@ -9,7 +9,7 @@ import {
 } from '../../../components';
 import * as authService from '../../../services/authService';
 import { SignInMessages } from './SignInMessages';
-import { ICustomClickEvent, IUserData } from './SignInTypes';
+import { ICustomClickEvent, IUserData } from './signInTypes';
 import {
 	ErrorMessage,
 	FieldsContainer,

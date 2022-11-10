@@ -4,7 +4,7 @@ import { RiCloseLine } from 'react-icons/ri';
 import { BooksContext } from '../../contexts';
 import { InputLabel } from '../InputLabel';
 import { BookModalMessages } from './BookModalMessages';
-import { IBook, IBookModalProps, ICustomClickEvent } from './BookModalTypes';
+import { IBook, IBookModalProps, ICustomClickEvent } from './bookModalTypes';
 import {
 	ActionsContainer,
 	CancelBtn,
@@ -164,9 +164,6 @@ function BookModal(props: IBookModalProps): JSX.Element {
 					</ModalContent>
 					<ModalActions>
 						<ActionsContainer>
-							{/* <DeleteBtn onClick={() => props.setIsOpen(false)}>
-								Delete
-							</DeleteBtn> */}
 							<SaveBtn
 								onClick={(event: ICustomClickEvent) =>
 									handleClickSaveButton(event)

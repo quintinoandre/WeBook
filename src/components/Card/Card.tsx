@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { IBook } from './CardTypes';
+import { IBook } from './cardTypes';
 import { Image, Overlay, CardContainer, Text } from './styles';
 
 function Card(props: IBook): JSX.Element {

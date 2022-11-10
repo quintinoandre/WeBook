@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
-const LoginButton = styled.button`
+const Quotes = styled.div`
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	justify-content: center;
-	border: 0;
-	padding: 1rem;
-	border-radius: 8px;
-	background: ${({ theme }) => theme['green-700']};
-	color: ${({ theme }) => theme['gray-100']};
-	font-weight: bold;
-	cursor: pointer;
-
-	&:hover {
-		background: ${({ theme }) => theme['green-500']};
+	align-items: center;
+	text-align: center;
+	height: 400px;
+	color: white;
+	h3 {
+		font-weight: lighter;
+		width: 100%;
+	}
+	p {
+		width: 40%;
+		margin: 10px;
+		text-align: right;
 	}
 `;
 
-export { LoginButton };
+export { Quotes };

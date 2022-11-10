@@ -1,4 +1,4 @@
-import { IAuthButtonProps, ICustomClickEvent } from './AuthButtonTypes';
+import { IAuthButtonProps, ICustomClickEvent } from './authButtonTypes';
 import { Button } from './styles';
 
 function AuthButton(props: IAuthButtonProps): JSX.Element {

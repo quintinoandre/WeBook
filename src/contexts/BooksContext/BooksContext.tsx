@@ -7,7 +7,7 @@ import {
 	IBooksProviderProps,
 	IInsertBook,
 	IUpdateBook,
-} from './BooksContextTypes';
+} from './booksContextTypes';
 
 const BooksContext = createContext({} as IBooksContextType);
 

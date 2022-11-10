@@ -9,17 +9,14 @@ import {
 	ProfileDetails,
 	AddButton,
 } from './styles';
-import { IUserProfile } from './UserProfileTypes';
+import { IUserProfile } from './userProfileTypes';
 
 function UserProfile(): JSX.Element {
-	const [error, setError] = useState<string>('');
 	const [userProfile, setUserProfile] = useState({} as IUserProfile);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	function handleError(error: any): void {
 		console.error(error.response ? error.response.data : error.message);
-
-		setError(error.response ? error.response.data : error.message);
 	}
 
 	async function getUserProfile(): Promise<void> {
@@ -61,7 +58,6 @@ function UserProfile(): JSX.Element {
 					edit={false}
 				/>
 			)}
-			{/* <pre>{JSON.stringify(userProfile)}</pre> */}
 		</>
 	);
 }

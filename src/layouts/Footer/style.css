@@ -1,0 +1,9 @@
+.link {
+	color: lightgray;
+	font-size: 2rem;
+}
+
+.link:hover {
+	color: aqua;
+	transform: scale(1.1);
+}

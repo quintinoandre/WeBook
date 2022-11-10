@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { getUserProfile } from '../../../../services';
 import { ArrayComments } from './CommentFile';
-import { IComment, ICustomFormSubmitEvent, IUserProfile } from './FormTypes';
+import { IComment, IUserProfile } from './formTypes';
 import {
 	FormContainerStyle,
 	TextArea,
@@ -31,12 +31,12 @@ function Form(): JSX.Element {
 		}
 	}
 
-	function handleSubmit(e: ICustomFormSubmitEvent): void {
+	function handleSubmit(event: FormEvent<HTMLFormElement>): void {
 		const count = 5;
-		e.preventDefault();
+		event.preventDefault();
 		const username = userProfile.data?.name;
 		const profile_picture = userProfile.data?.profile_picture;
-		const comment = e.target.comment.value;
+		const comment = event.target.comment.value;
 		const obj = {
 			name: username,
 			comment,
@@ -53,7 +53,7 @@ function Form(): JSX.Element {
 	return (
 		<>
 			<FormContainerStyle
-				onSubmit={(event: ICustomFormSubmitEvent) =>
+				onSubmit={(event: FormEvent<HTMLFormElement>) =>
 					handleSubmit(event)
 				}
 			>

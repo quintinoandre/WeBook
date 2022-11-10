@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BookInfoContainterStyle = styled.div`
+const BookInfoContainerStyle = styled.div`
 	display: flex;
 	justify-content: left;
 	align-items: center;
@@ -41,4 +41,4 @@ const BookDetailedInfo = styled.div`
 	}
 `;
 
-export { BookInfoContainterStyle, BookCoverAndTitle, BookDetailedInfo };
+export { BookInfoContainerStyle, BookCoverAndTitle, BookDetailedInfo };

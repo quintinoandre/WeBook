@@ -9,7 +9,7 @@ import {
 } from '../../../components';
 import * as authService from '../../../services/authService';
 import { LoginMessages } from './LoginMessages';
-import { ICustomClickEvent, IUserCredentials } from './LoginTypes';
+import { ICustomClickEvent, IUserCredentials } from './loginTypes';
 import { ErrorMessage, FieldsContainer, LoginForm, LoginTitle } from './styles';
 
 const DEFAULT_USER_CREDENTIALS = {

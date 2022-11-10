@@ -5,7 +5,7 @@ import { BooksContext } from '../../contexts';
 import * as bookService from '../../services/bookService';
 import { BookModal } from '../BookModal';
 import { Card } from '../Card';
-import { IBook, IBookGridProps, ICustomClickEvent } from './BooksGridTypes';
+import { IBook, IBookGridProps, ICustomClickEvent } from './booksGridTypes';
 import {
 	ButtonContainer,
 	CardContainer,

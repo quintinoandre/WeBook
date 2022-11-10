@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 import { getUserProfile } from '../../services';
 import { getTokenFromCookies } from '../../utils';
-import { IUserProfile } from './HeaderTypes';
+import { IUserProfile } from './headerTypes';
 import { LoginButton, NavBar, NavBarWithLogin, ProfilePick } from './styles';
 
 function Header(): JSX.Element {
@@ -50,10 +50,8 @@ function Header(): JSX.Element {
 					<ProfilePick onClick={handleClickProfileButton}>
 						<img
 							src={userProfile.data?.profile_picture}
-							// srcSet="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
 							alt="User Profile Pic"
 						/>
-						{/* <h4>Brad Pitt</h4> */}
 						<h4>{userProfile.data?.name}</h4>
 					</ProfilePick>
 				</NavBarWithLogin>
