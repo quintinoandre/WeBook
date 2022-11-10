@@ -19,7 +19,7 @@ const BookCoverAndTitle = styled.div`
 	padding: 40px;
 	margin: 20px;
 	h1 {
-		color: lightgray;
+		color: gray;
 		font-size: 30px;
 	}
 	img {
@@ -33,10 +33,10 @@ const BookDetailedInfo = styled.div`
 	gap: 30px;
 	height: 300px;
 	margin-right: 20px;
-	color: lightgray;
+	color: gray;
 	span {
 		padding: 10px;
-		color: black;
+		color: lightgray;
 		font-size: 15px;
 	}
 `;

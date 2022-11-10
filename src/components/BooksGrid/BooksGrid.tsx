@@ -16,8 +16,9 @@ import {
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 186px);
-	grid-gap: 0% 3%;
-	margin: 10% 15%;
+	grid-gap: 30px;
+	width: 80%;
+	margin: 10% auto;
 `;
 
 function BooksGrid(props: IBookGridProps): JSX.Element {
