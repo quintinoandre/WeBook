@@ -1,5 +1,5 @@
 import { api } from '../../lib';
-import { IBook } from './bookServiceTypes';
+import { IBook, IInsertBook } from './bookServiceTypes';
 
 async function getAllBooks(): Promise<IBook[]> {
 	const response = await api.get('/api/book/?sort_by=year&order_by=desc');
@@ -17,4 +17,12 @@ async function getBookById(bookId: number): Promise<IBook> {
 	return book;
 }
 
-export { getAllBooks, getBookById };
+async function insertNewBook(newBook: IInsertBook): Promise<IBook> {
+	const response = await api.post('/api/book', newBook);
+
+	const book: IBook = response.data.data;
+
+	return book;
+}
+
+export { getAllBooks, getBookById, insertNewBook };
