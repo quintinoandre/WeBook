@@ -6,6 +6,7 @@ import {
 	IBooksContextType,
 	IBooksProviderProps,
 	IInsertBook,
+	IUpdateBook,
 } from './BooksContextTypes';
 
 const BooksContext = createContext({} as IBooksContextType);
@@ -27,27 +28,78 @@ function BooksProvider({ children }: IBooksProviderProps): JSX.Element {
 		}
 	}, []);
 
-	const insertNewBook = useCallback(async function (
-		newBook: IInsertBook
-	): Promise<void> {
-		try {
-			const book = await bookService.insertNewBook(newBook);
+	const insertNewBook = useCallback(
+		async function (newBook: IInsertBook): Promise<void> {
+			try {
+				const book = await bookService.insertNewBook(newBook);
 
-			if (book) {
-				setBooks((previousState) => [...previousState, book]);
+				if (book) {
+					setBooks((previousState) => [...previousState, book]);
+				}
+			} catch (error) {
+				handleError(error);
 			}
-		} catch (error) {
-			handleError(error);
-		}
-	},
-	[]);
+		},
+		[books]
+	);
+
+	const updateBook = useCallback(
+		async function (
+			bookId: number,
+			updatedBook: IUpdateBook
+		): Promise<void> {
+			try {
+				const book = await bookService.updateBook(bookId, updatedBook);
+
+				if (book) {
+					const bookIndex = books.findIndex(
+						(book) => book.id === bookId
+					);
+
+					const updatedBooks = [...books];
+
+					updatedBooks.splice(bookIndex, 1, book);
+
+					setBooks([...updatedBooks]);
+				}
+			} catch (error) {
+				handleError(error);
+			}
+		},
+		[books]
+	);
+
+	const deleteBook = useCallback(
+		async function (bookId: number): Promise<void> {
+			try {
+				const response = await bookService.deleteBook(bookId);
+
+				if (response) {
+					const bookIndex = books.findIndex(
+						(book) => book.id === bookId
+					);
+
+					const updatedBooks = [...books];
+
+					updatedBooks.splice(bookIndex, 1);
+
+					setBooks([...updatedBooks]);
+				}
+			} catch (error) {
+				handleError(error);
+			}
+		},
+		[books]
+	);
 
 	useEffect(() => {
 		void getAllBooks();
 	}, []);
 
 	return (
-		<BooksContext.Provider value={{ books, insertNewBook }}>
+		<BooksContext.Provider
+			value={{ books, insertNewBook, updateBook, deleteBook }}
+		>
 			{children}
 		</BooksContext.Provider>
 	);

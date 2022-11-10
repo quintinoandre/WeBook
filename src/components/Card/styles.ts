@@ -20,7 +20,6 @@ const Overlay = styled.div`
 `;
 
 const CardContainer = styled.div`
-	padding: 10px;
 	position: relative;
 	cursor: pointer;
 

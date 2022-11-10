@@ -1,8 +1,8 @@
-import { ChangeEvent, useContext, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
-import { InputLabel } from '../../../../../components';
-import { BooksContext } from '../../../../../contexts';
+import { BooksContext } from '../../contexts';
+import { InputLabel } from '../InputLabel';
 import { BookModalMessages } from './BookModalMessages';
 import { IBook, IBookModalProps, ICustomClickEvent } from './BookModalTypes';
 import {
@@ -28,7 +28,7 @@ const DEFAULT_BOOK: IBook = {
 } as const;
 
 function BookModal(props: IBookModalProps): JSX.Element {
-	const { insertNewBook } = useContext(BooksContext);
+	const { insertNewBook, updateBook } = useContext(BooksContext);
 
 	const [book, setBook] = useState<IBook>({ ...DEFAULT_BOOK });
 	const [error, setError] = useState<string>('');
@@ -42,7 +42,7 @@ function BookModal(props: IBookModalProps): JSX.Element {
 		}));
 	}
 
-	async function handleClickSaveButton(event: ICustomClickEvent): void {
+	async function insertBook(event: ICustomClickEvent): Promise<void> {
 		event.preventDefault();
 
 		if (
@@ -63,6 +63,48 @@ function BookModal(props: IBookModalProps): JSX.Element {
 
 		props.setIsOpen(false);
 	}
+
+	async function editBook(event: ICustomClickEvent): Promise<void> {
+		event.preventDefault();
+
+		if (
+			!book.title ||
+			book.year === 0 ||
+			!book.description ||
+			!book.book_cover
+		) {
+			return setError(BookModalMessages.FILL_ALL_DATA);
+		}
+
+		await updateBook(Number(book.id), {
+			title: book.title,
+			year: Number(book.year),
+			description: book.description,
+			book_cover: book.book_cover,
+		});
+
+		props.setIsOpen(false);
+	}
+
+	function handleClickSaveButton(event: ICustomClickEvent): void {
+		if (props.edit) {
+			void editBook(event);
+		} else {
+			void insertBook(event);
+		}
+	}
+
+	useEffect(() => {
+		if (props.edit) {
+			setBook({
+				id: props.bookId ?? 0,
+				title: props.bookTitle ?? '',
+				year: props.year ?? 0,
+				description: props.description ?? '',
+				book_cover: props.book_cover ?? '',
+			});
+		}
+	}, []);
 
 	return (
 		<>

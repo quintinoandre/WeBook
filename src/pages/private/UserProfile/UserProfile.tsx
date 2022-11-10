@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { BooksGrid } from '../../../components';
+import { BookModal, BooksGrid } from '../../../components';
 import * as usersService from '../../../services/usersService';
 import { getUserIdFromCookies } from '../../../utils';
-import { BookModal } from './components';
 import {
 	ProfileStyle,
 	ProfilePictureAndButton,
@@ -55,7 +54,13 @@ function UserProfile(): JSX.Element {
 				+
 			</AddButton>
 			<BooksGrid userId={getUserIdFromCookies()} />
-			{isOpen && <BookModal title="Create Book" setIsOpen={setIsOpen} />}
+			{isOpen && (
+				<BookModal
+					title="Create Book"
+					setIsOpen={setIsOpen}
+					edit={false}
+				/>
+			)}
 			{/* <pre>{JSON.stringify(userProfile)}</pre> */}
 		</>
 	);
