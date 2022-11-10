@@ -30,10 +30,20 @@ const BaseButton = styled.button`
 `;
 
 const EditButton = styled(BaseButton)`
-	background: ${({ theme }) => theme.backGroundColor};
+	background: linear-gradient(
+		to right,
+		#1a2980 10%,
+		#26d0ce 100%,
+		#1a2980 100%
+	);
 
 	&:hover {
-		background: ${({ theme }) => theme['backGroundColor-light']};
+		background: linear-gradient(
+			to left,
+			#1a2980 10%,
+			#26d0ce 100%,
+			#1a2980 100%
+		);
 	}
 `;
 

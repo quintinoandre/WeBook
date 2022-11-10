@@ -9,13 +9,13 @@ const FormContainerStyle = styled.form`
 	margin: 2.5% 5%;
 	h1 {
 		padding: 0px 10px;
-		color: ${({ theme }) => theme['blue-100']};
+		color: lightgray;
 	}
 `;
 
 const TextArea = styled.textarea`
 	resize: none;
-	background: rgba(245, 245, 245, 0.38);
+	background: rgba(245, 245, 245, 0.2);
 	border: 1px solid #000000;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
@@ -23,6 +23,7 @@ const TextArea = styled.textarea`
 	font-size: 17px;
 	min-width: 500px;
 	max-width: 90%;
+	color: lightgray;
 `;
 
 const SubmitButton = styled.button`
@@ -31,13 +32,13 @@ const SubmitButton = styled.button`
 	border-radius: 10px;
 	width: 150px;
 	height: 40px;
-	background: rgba(245, 245, 245, 0.38);
+	background: rgba(245, 245, 245, 0.2);
 	border: 1px solid #000000;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	font-size: 17px;
-	color: ${({ theme }) => theme['blue-100']};
-
+	color: lightgray;
 	&:hover {
+		color: ${({ theme }) => theme['blue-100']};
 		font-weight: bold;
 		background: ${({ theme }) => theme['gray-100']};
 		border: 2px solid ${({ theme }) => theme['blue-100']};
@@ -53,7 +54,7 @@ const CommentsContainer = styled.div`
 	height: 110px;
 	width: 900px;
 	margin: 1% 7.5%;
-	background: rgba(245, 245, 245, 0.38);
+	background: rgba(245, 245, 245, 0.2);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
 	ul {
@@ -62,6 +63,7 @@ const CommentsContainer = styled.div`
 	p {
 		padding: 10px;
 		font-size: 15px;
+		color: lightgray;
 	}
 `;
 
@@ -90,6 +92,7 @@ const ProfilePick = styled.div`
 		top: 0;
 		font-size: 15px;
 		width: 100px;
+		color: lightgray;
 	}
 `;
 

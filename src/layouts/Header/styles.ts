@@ -8,7 +8,7 @@ const NavBar = styled.div`
 	align-items: center;
 	text-align: center;
 	height: 80px;
-	background: rgba(245, 245, 245, 0.38);
+	background: rgba(245, 245, 245, 0.1);
 	border: 1px solid #000000;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	padding: 20px;
@@ -42,12 +42,9 @@ const NavBarWithLogin = styled.div`
 	align-items: center;
 	text-align: center;
 	height: 80px;
-	background: rgba(245, 245, 245, 0.38);
-	border: 1px solid #000000;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	padding: 20px;
 	h1 a {
-		color: ${({ theme }) => theme['blue-100']};
+		color: lightgray;
 		text-decoration: none;
 		cursor: pointer;
 	}
@@ -68,6 +65,9 @@ const ProfilePick = styled.div`
 		height: 50px;
 		border-radius: 50%;
 		margin: 5px 10px;
+	}
+	h4 {
+		color: lightgray;
 	}
 `;
 

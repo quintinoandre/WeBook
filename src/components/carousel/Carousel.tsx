@@ -31,9 +31,9 @@ function Carousel(): JSX.Element {
 
 	const Text = styled.h1`
 		text-align: center;
-		color: #044480;
 		font-family: 'roboto';
 		padding: 50px;
+		color: lightgray;
 	`;
 
 	return (

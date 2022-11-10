@@ -5,7 +5,7 @@ const DEFAULT_THEME = {
 	black: '#000000',
 
 	backGroundColor:
-		'linear-gradient(243.31deg, rgba(166, 216, 24, 0.2) 31.34%, rgba(0, 0, 0, 0) 92.09%), rgba(4, 68, 128, 0.87)',
+		'linear-gradient(90deg, rgb(1, 15, 36) 56%, rgba(60,126,3,1) 200%)',
 
 	'backGroundColor-light':
 		'linear-gradient(243.31deg, rgba(166, 216, 24, 0.23) 31.34%, rgba(0, 0, 0, 0) 92.09%), rgba(55, 153, 244, 0.87)',

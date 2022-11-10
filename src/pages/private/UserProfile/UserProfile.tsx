@@ -32,9 +32,9 @@ function UserProfile(): JSX.Element {
 		}
 	}
 
-	// useEffect(() => {
-	// 	void getUserProfile();
-	// }, []);
+	useEffect(() => {
+		void getUserProfile();
+	}, []);
 
 	return (
 		<>

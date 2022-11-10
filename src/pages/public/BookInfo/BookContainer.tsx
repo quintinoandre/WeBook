@@ -26,9 +26,9 @@ function BookInfoContainter(): JSX.Element {
 		}
 	}
 
-	// useEffect(() => {
-	// 	void getBookDetails();
-	// }, []);
+	useEffect(() => {
+		void getBookDetails();
+	}, []);
 
 	return (
 		<BookInfoContainterStyle>
@@ -38,7 +38,7 @@ function BookInfoContainter(): JSX.Element {
 				<img
 					// src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
 					src={bookDetails.book_cover}
-					srcSet="https://libribook.com/Images/mesmerized-pdf.jpg"
+					// srcSet="https://libribook.com/Images/mesmerized-pdf.jpg"
 					alt="Book Cover"
 				/>
 			</BookCoverAndTitle>

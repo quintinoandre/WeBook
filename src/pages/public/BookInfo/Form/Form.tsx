@@ -34,8 +34,8 @@ function Form(): JSX.Element {
 	function handleSubmit(e: ICustomFormSubmitEvent): void {
 		const count = 5;
 		e.preventDefault();
-		const username = userProfile.data.name;
-		const profile_picture = userProfile.data.profile_picture;
+		const username = userProfile.data?.name;
+		const profile_picture = userProfile.data?.profile_picture;
 		const comment = e.target.comment.value;
 		const obj = {
 			name: username,
