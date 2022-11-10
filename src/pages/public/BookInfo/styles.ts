@@ -6,7 +6,7 @@ const BookInfoContainterStyle = styled.div`
 	align-items: center;
 	height: 650px;
 	margin: 2.5% 5%;
-	background: rgba(245, 245, 245, 0.65);
+	background: rgba(245, 245, 245, 0.2);
 	border-radius: 20px;
 `;
 
@@ -19,7 +19,7 @@ const BookCoverAndTitle = styled.div`
 	padding: 40px;
 	margin: 20px;
 	h1 {
-		color: ${({ theme }) => theme['blue-100']};
+		color: lightgray;
 		font-size: 30px;
 	}
 	img {
@@ -33,8 +33,9 @@ const BookDetailedInfo = styled.div`
 	gap: 30px;
 	height: 300px;
 	margin-right: 20px;
-	color: ${({ theme }) => theme['blue-100']};
+	color: lightgray;
 	span {
+		padding: 10px;
 		color: black;
 		font-size: 15px;
 	}

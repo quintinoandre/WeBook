@@ -7,13 +7,12 @@ const ProfileStyle = styled.div`
 	margin: 2.5% 5%;
 	border-radius: 20px;
 	height: 500px;
-	background: ${({ theme }) => theme['gray-100']};
+	background: rgba(245, 245, 245, 0.2);
 `;
 
 const ProfilePictureAndButton = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* background: blue; */
 	margin: 20px 100px;
     
 	img {
@@ -43,7 +42,6 @@ const ProfilePictureAndButton = styled.div`
 
 const ProfileDetails = styled.ul`
 	padding: 50px;
-	/* background: yellow; */
 	display: flex;
 	flex-direction: column;
 	height: 300px;
@@ -54,8 +52,9 @@ const ProfileDetails = styled.ul`
 	font-size: normal;
 	font-weight: bold;
 	list-style-type: circle;
-	border-left: 2px solid #044480;
-
+	border-left: 2px solid lightgray;
+	color: lightgray;
+	list-style: none;
 	span {
 		margin-bottom: 10px;
 		font-weight: normal;
@@ -91,7 +90,6 @@ const AddButton = styled.button`
 		padding-right: 25px;
 	}
 `;
-
 
 export {
 	ProfileStyle,

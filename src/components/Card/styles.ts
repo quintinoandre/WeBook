@@ -5,7 +5,7 @@ const Image = styled.img`
 	border-radius: 10px;
 	transition: 0.5s ease-in;
 	height: 350px;
-	width: 100%;
+	width: 90%;
 	min-width: 200px;
 `;
 
