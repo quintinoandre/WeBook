@@ -6,13 +6,10 @@ import { Card } from '../Card';
 import { IBookGridProps } from './BooksGridTypes';
 
 const Grid = styled.div`
-	width: 100%;
 	display: grid;
-	grid-template: repeat(3, 1fr) / repeat(6, 1fr);
-	width: 80%;
-	margin: 0 auto;
-	gap: 10px;
-	margin-top: 200px;
+	grid-template-columns: repeat(auto-fill, 186px);
+	grid-gap: 0% 3%;
+	margin: 10% 15%;
 `;
 
 function BooksGrid(props: IBookGridProps): JSX.Element {
