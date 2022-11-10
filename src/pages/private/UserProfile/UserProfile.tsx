@@ -33,22 +33,22 @@ function UserProfile(): JSX.Element {
 		}
 	}
 
-	useEffect(() => {
-		void getUserProfile();
-	}, []);
+	// useEffect(() => {
+	// 	void getUserProfile();
+	// }, []);
 
 	return (
 		<>
 			<ProfileStyle>
 				<ProfilePictureAndButton>
-					<img src="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"></img>
+					<img src={userProfile.data?.profile_picture}></img>
 					<button type="button">Edit</button>
 				</ProfilePictureAndButton>
 				<ProfileDetails>
 					<li>Name: </li>
-					<span>Brad Pitt</span>
+					<span>{userProfile.data?.name}</span>
 					<li>Email: </li>
-					<span>csdsdasdasdasdasdas@seila.com</span>
+					<span>{userProfile.data?.email}</span>
 				</ProfileDetails>
 			</ProfileStyle>
 			<AddButton type="button" onClick={() => setIsOpen(true)}>

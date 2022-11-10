@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import { getUserProfile } from '../../services';
@@ -36,9 +36,10 @@ function Header(): JSX.Element {
 		navigate('/');
 	}
 
-	// useEffect(() => {
-	// 	void getUserDetails();
-	// }, []);
+	useEffect(() => {
+		void getUserDetails();
+	}, []);
+
 	return (
 		<>
 			{getTokenFromCookies().length > 0 ? (
@@ -48,12 +49,12 @@ function Header(): JSX.Element {
 					</h1>
 					<ProfilePick onClick={handleClickProfileButton}>
 						<img
-							// src={userProfile.data.profile_picture}
-							src="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
+							src={userProfile.data?.profile_picture}
+							// srcSet="https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x"
 							alt="User Profile Pic"
 						/>
-						<h4>Brad Pitt</h4>
-						{/* <h4>{userProfile.data.name}</h4> */}
+						{/* <h4>Brad Pitt</h4> */}
+						<h4>{userProfile.data?.name}</h4>
 					</ProfilePick>
 				</NavBarWithLogin>
 			) : (

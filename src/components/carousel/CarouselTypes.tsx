@@ -2,9 +2,9 @@ interface IBook {
 	id: number;
 	title: string;
 	year: number;
-	description: string;
+	description?: string;
 	book_cover: string;
-	user: {
+	user?: {
 		id: number;
 		name: string;
 		email: string;
@@ -12,4 +12,8 @@ interface IBook {
 	};
 }
 
-export type { IBook };
+interface ICarouselProps {
+	data: IBook[];
+}
+
+export type { IBook, ICarouselProps };
